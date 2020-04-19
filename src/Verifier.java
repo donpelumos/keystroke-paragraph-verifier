@@ -23,7 +23,9 @@ public class Verifier {
         for(String requiredString : requirements){
             int occurrenceCount = occurrenceCounter(paragraph, requiredString);
             occurrenceMap.put(requiredString, occurrenceCount);
-            isValid = (occurrenceCount > 0) ? true : false;
+            if(isValid) {
+                isValid = (occurrenceCount > 0) ? true : false;
+            }
         }
         printData(occurrenceMap);
         return isValid;
