@@ -1,3 +1,4 @@
+import javax.management.StringValueExp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,10 +44,15 @@ public class Verifier {
             return count;
         }
         char [] textArray = text.toCharArray();
+        String previousCharacter = "";
         for(char character : textArray){
-            if(String.valueOf(character).equals(key)){
+            if(String.valueOf(character).equals(key) && key.length()==1){
                 count++;
             }
+            else if((previousCharacter+String.valueOf(character)).equals(key) && key.length()==2){
+                count ++;
+            }
+            previousCharacter = String.valueOf(character);
         }
         return count;
     }
